@@ -1,6 +1,8 @@
 Because every object should have the ability to fire an event.
 
-```
+#Usage#
+
+```html
 class Car
 {
     public static start(): void
