@@ -1,0 +1,17 @@
+﻿{
+    "compilerOptions": {
+        "alwaysStrict": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitReturns": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "preserveConstEnums": true,
+        "compileOnSave": true,
+        "target": "es5"
+    },
+    "include": [
+        "QuickEvent.ts",
+        "ObjectExtension.ts",
+        "Tests/index.ts"
+    ]
+}

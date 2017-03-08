@@ -1,4 +1,3 @@
-#Do not use it! Complete rewrite is coming!#
 Because every object should have the ability to fire an event.
 
 #Usage#
@@ -7,43 +6,58 @@ Because every object should have the ability to fire an event.
 ```typescript
 class Car
 {
+    public onStart: QuickEvent = new QuickEvent();
+
+
+
     public start(): void
     {
-        this.fireEvent("onStart");
+        this.onStart.fire(this);
     }
 }
 
 let car: Car = new Car();
 
-car.listenToEvent("onStart", carStarted);
+car.onStart.listen(carStarted);
 car.start();
 
-function carStarted(target: Object): void
+function carStarted(args: Object): void
 {
-    console.log("Car started");
-    console.log(target.constructor.name); //Car
+    (<Car>args).onStart.unlisten(carStarted);
+
+    console.log("args: " + args.constructor); //Car
 }
 ```
 
 ##Javascript##
 
 ```javascript
-var Car = function()
+var Car = (function ()
 {
-    this.start = function()
+    function Car()
     {
-        this.fireEvent("onStart");
+        this.onStart = new QuickEvent();
+    }
+
+
+
+    Car.prototype.start = function ()
+    {
+        this.onStart.fire(this);
     };
-};
+
+    return Car;
+}());
 
 var car = new Car();
 
-car.listenToEvent("onStart", carStarted);
+car.onStart.listen(carStarted);
 car.start();
 
-function carStarted(target)
+function carStarted(args)
 {
-    console.log("Car started");
-    console.log(target.constructor.name); //Car
+    args.onStart.unlisten(carStarted);
+
+    console.log("args: " + args.constructor); //Car
 }
 ```
