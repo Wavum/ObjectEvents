@@ -1,3 +1,5 @@
+Do not use it!
+Complete rewrite is coming!
 Because every object should have the ability to fire an event.
 
 #Usage#
