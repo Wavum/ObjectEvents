@@ -1,7 +1,7 @@
 Because every object should have the ability to fire an event.
 
-#Usage#
-##Typescript##
+# Usage
+## Typescript
 
 ```typescript
 class Car
@@ -29,7 +29,7 @@ function carStarted(args: Object): void
 }
 ```
 
-##Javascript##
+## Javascript
 
 ```javascript
 var Car = (function ()
