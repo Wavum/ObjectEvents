@@ -8,8 +8,6 @@ class Car
 {
     public onStart: QuickEvent = new QuickEvent();
 
-
-
     public start(): void
     {
         this.onStart.fire(this);
@@ -38,8 +36,6 @@ var Car = (function ()
     {
         this.onStart = new QuickEvent();
     }
-
-
 
     Car.prototype.start = function ()
     {
